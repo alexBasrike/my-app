@@ -1,73 +1,24 @@
 import React from 'react';
 import './App.css';
+import AppTitle from './components/AppTitle/AppTitle';
+import Rating from './components/Rating/Rating';
+import Accordion from './components/Accordion/Accordion';
 
 function App() {
     console.log('APP rendering');
     return (
         <div className="App">
-            <AppTitle/>
-            <Rating/>
-            <Accordion/>
-            <Rating/>
+            <AppTitle title={"This is APP component"}/>
+            <Accordion titleValue={"Menu"} collapsedValue={true}/>
+            <Accordion titleValue={"Users"} collapsedValue={false}/>
+            <Rating value={0}/>
+            <Rating value={1}/>
+            <Rating value={2}/>
+            <Rating value={3}/>
+            <Rating value={4}/>
+            <Rating value={5}/>
         </div>
     );
 }
-
-
-function AppTitle() {
-    console.log('App title rendering');
-    return (
-        <>This is APP component</>
-    );
-}
-
-function Rating() {
-    console.log('Star block rendering');
-    return (
-        <div>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-        </div>
-    );
-}
-
-function Star() {
-    console.log('Star element rendering');
-    return (
-        <div>Star</div>
-    );
-}
-
-function Accordion() {
-    console.log('Accordion rendering');
-    return (
-        <div>
-            <AccordionTitle/>
-            <AccordionBody/>
-        </div>
-    );
-}
-
-function AccordionTitle() {
-    console.log('AccordionTitle rendering');
-    return (
-        <h3>Меню</h3>
-    );
-}
-
-function AccordionBody() {
-    console.log('AccordionBody rendering');
-    return (
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-    );
-}
-
 
 export default App;
