@@ -80,7 +80,7 @@ function Rating(props: RatingPropsType) {
 }
 
 type StarPropsType = {
-    selected: boolean
+    selected?: boolean
 }
 
 function Star(props: StarPropsType) {
