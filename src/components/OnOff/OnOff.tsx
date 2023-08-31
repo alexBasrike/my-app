@@ -1,34 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-type OnOffPropsType = {
-    status: "on" | "off"
-}
+export const OnOff = () => {
 
-export const OnOff = (props: OnOffPropsType) => {
+    let [buttonStatus, setButtonStatus] = useState(false);
+
+    const on = {
+        background: buttonStatus ? "green" : "black",
+        display: "inline-block",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "50px",
+        height: "20px",
+        border: "1px solid #fff",
+        verticalAlign: "top"
+    }
+
+    const off = {
+        background: buttonStatus ? "black" : "red",
+        display: "inline-block",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "50px",
+        height: "20px",
+        border: "1px solid #fff",
+        verticalAlign: "top"
+    }
+
+    const circle = {
+        background: buttonStatus ? "green" : "red",
+        display: "inline-block",
+        width: "20px",
+        height: "20px",
+        border: "1px solid #fff",
+        borderRadius: "50%",
+        verticalAlign: "top"
+    }
+
     return (
         <div>
-            <br/>
-            {props.status === "on" ? <On/> : <Off/>}
+            <span onClick={ () => setButtonStatus(true) } style={on}>On</span>
+            <span onClick={ () => setButtonStatus(false) } style={off}>Off</span>
+            <span style={circle}></span>
         </div>
     );
 };
-
-const On = () => {
-    return (
-        <div className={"status-block"}>
-            <span className={"square on"}>on</span>
-            <span className={"square"}>off</span>
-            <span className={"circle on"}>on</span>
-        </div>
-    )
-}
-
-const Off = () => {
-    return (
-        <div className={"status-block"}>
-            <span className={"square"}>on</span>
-            <span className={"square off"}>off</span>
-            <span className={"circle off"}>off</span>
-        </div>
-    )
-}

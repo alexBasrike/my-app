@@ -20,8 +20,8 @@ function App() {
             <Rating value={4}/>
             <Rating value={5}/>
 
-            <OnOff status={"on"}/>
-            <OnOff status={"off"}/>
+            <OnOff/>
+            <OnOff/>
         </div>
     );
 }
