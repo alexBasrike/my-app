@@ -2,33 +2,3 @@ body {
     background-color: #000;
     color: #fff;
 }
-
-.status-block {
-    display: flex;
-    align-items: center;
-}
-
-.square,
-.circle {
-    display: inline-block;
-    margin: 0 15px 0 0;
-    padding: 5px 10px;
-    vertical-align: top;
-    color: #fff;
-}
-
-.square.on,
-.circle.on {
-    background-color: green;
-}
-
-.square.off,
-.circle.off {
-    background-color: red;
-}
-
-.circle {
-    padding: 5px;
-    border-radius: 50%;
-    font-size: 0;
-}
