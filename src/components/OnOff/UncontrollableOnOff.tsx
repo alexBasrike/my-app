@@ -1,14 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-type OnOffPropsType = {
-    buttonStatus: boolean
-    setButtonStatus: (value: boolean) => void
-}
+export const UncontrollableOnOff = () => {
 
-export const OnOff = (props: OnOffPropsType) => {
+    let [buttonStatus, setButtonStatus] = useState(false);
 
     const on = {
-        background: props.buttonStatus ? "green" : "black",
+        background: buttonStatus ? "green" : "black",
         display: "inline-block",
         alignItems: "center",
         justifyContent: "center",
@@ -18,7 +15,7 @@ export const OnOff = (props: OnOffPropsType) => {
         verticalAlign: "top"
     }
     const off = {
-        background: props.buttonStatus ? "black" : "red",
+        background: buttonStatus ? "black" : "red",
         display: "inline-block",
         alignItems: "center",
         justifyContent: "center",
@@ -28,7 +25,7 @@ export const OnOff = (props: OnOffPropsType) => {
         verticalAlign: "top"
     }
     const circle = {
-        background: props.buttonStatus ? "green" : "red",
+        background: buttonStatus ? "green" : "red",
         display: "inline-block",
         width: "20px",
         height: "20px",
@@ -38,11 +35,11 @@ export const OnOff = (props: OnOffPropsType) => {
     }
 
     const setOn = () => {
-        props.setButtonStatus(true)
+        setButtonStatus(true)
     }
 
     const setOff = () => {
-        props.setButtonStatus(false)
+        setButtonStatus(false)
     }
 
     return (

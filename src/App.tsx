@@ -1,29 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import AppTitle from './components/AppTitle/AppTitle';
-import Rating from './components/Rating/Rating';
+import Rating, {RatingValueType} from './components/Rating/Rating';
 import Accordion from './components/Accordion/Accordion';
 import {OnOff} from "./components/OnOff/OnOff";
-import UncontrollableRating from "./components/UncontrollableRating/UncontrollableRating";
+import {UncontrollableOnOff} from "./components/OnOff/UncontrollableOnOff";
 
 function App() {
-    console.log('APP rendering');
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0);
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
+    let [buttonStatus, setButtonStatus] = useState(false);
+
     return (
         <div className="App">
             <AppTitle title={"This is APP component"}/>
 
-            {/*<Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>*/}
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+            {/*<UncontrollableRating/>*/}
 
-            <Accordion titleValue={"Menu"}/>
+            <Accordion titleValue={"Menu"} accordionCollapsed={accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed}/>
 
-            <OnOff/>
-
-            <UncontrollableRating/>
+            <OnOff buttonStatus={buttonStatus} setButtonStatus={setButtonStatus}/>
+            <UncontrollableOnOff/>
         </div>
     );
 }
